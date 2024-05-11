@@ -8,6 +8,11 @@
     Token="<token>"
     Server="<server>"
 
+[slack]
+    [slack.test]
+    Token="<token>"
+    PrefixMessagesWithNick=true
+
 [general]
 RemoteNickFormat="[{PROTOCOL}/{BRIDGE}] <{NICK}>"
 
@@ -21,4 +26,8 @@ RemoteNickFormat="[{PROTOCOL}/{BRIDGE}] <{NICK}>"
 
     [[gateway.inout]]
     account="discord.test"
+    channel="testing"
+
+    [[gateway.inout]]
+    account="slack.test"
     channel="testing"
