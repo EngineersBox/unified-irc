@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  matterbridge:
+    image: 42wim/matterbridge:stable
+    volumes:
+      - ./config/matterbridge/matterbridge.toml:/etc/matterbridge/matterbridge.toml
+    networks:
+     - ircnet
+  inspircd:
+    image: inspircd/inspircd-docker
+    volumes:
+      - ./config/inspircd:/inspircd/conf
+    ports:
+      - 6667:6667
+    networks:
+      - ircnet
+
+networks:
+  ircnet:
+    name: ircnet

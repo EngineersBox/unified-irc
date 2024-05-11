@@ -1,0 +1,24 @@
+[irc]
+    [irc.local]
+    Server="localhost:6667"
+    Nick="EngineersBox"
+
+[discord]
+    [discord.test]
+    Token="<token>"
+    Server="<server>"
+
+[general]
+RemoteNickFormat="[{PROTOCOL}/{BRIDGE}] <{NICK}>"
+
+[[gateway]]
+    name="discord-irc-gateway"
+    enable=true
+
+    [[gateway.inout]]
+    account="irc.local"
+    channel="#Local"
+
+    [[gateway.inout]]
+    account="discord.test"
+    channel="testing"
