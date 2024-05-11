@@ -1,12 +1,16 @@
 version: '3.7'
 services:
   matterbridge:
+    container_name: matterbridge
     image: 42wim/matterbridge:stable
     volumes:
-      - ./config/matterbridge/matterbridge.toml:/etc/matterbridge/matterbridge.toml
+      - ./config/matterbridge/matterbridge.toml:/etc/matterbridge/matterbridge.toml:ro
     networks:
-     - ircnet
+      - ircnet
+    depends_on:
+      - inspircd
   inspircd:
+    container_name: inspircd
     image: inspircd/inspircd-docker
     volumes:
       - ./config/inspircd:/inspircd/conf

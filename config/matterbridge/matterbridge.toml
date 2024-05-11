@@ -1,12 +1,14 @@
 [irc]
     [irc.local]
-    Server="localhost:6667"
-    Nick="EngineersBox"
+    Server="inspircd:6667"
+    Nick="Matterbridge"
+    # ColorNicks=true
 
 [discord]
-    [discord.test]
+    [discord.testing]
     Token="<token>"
-    Server="<server>"
+    Server="Testing"
+    ShowEmbeds=true
 
 [slack]
     [slack.test]
@@ -14,20 +16,21 @@
     PrefixMessagesWithNick=true
 
 [general]
-RemoteNickFormat="[{PROTOCOL}/{BRIDGE}] <{NICK}>"
+    ShowJoinPart=true
+    RemoteNickFormat="[{PROTOCOL}/{CHANNEL}] <{NICK}> "
 
 [[gateway]]
-    name="discord-irc-gateway"
+    name="comms-gateway"
     enable=true
 
     [[gateway.inout]]
-    account="irc.local"
-    channel="#Local"
+        account="irc.local"
+        channel="#Local"
 
     [[gateway.inout]]
-    account="discord.test"
-    channel="testing"
+        account="discord.testing"
+        channel="general"
 
-    [[gateway.inout]]
-    account="slack.test"
-    channel="testing"
+    # [[gateway.inout]]
+    # account="slack.test"
+    # channel="testing"
